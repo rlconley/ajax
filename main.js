@@ -2,6 +2,7 @@ let mainContainer = document.querySelector("#mainContainer");
 console.log(mainContainer);
 
 let deckUrl = "https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
+// obtained the URL from the API docs https://deckofcardsapi.com/
 
 fetch(deckUrl, {
   method: "GET",
@@ -12,9 +13,11 @@ fetch(deckUrl, {
     // waits for the request to complete
     // response is what the request returned
     return response.json();
+    // parse the response body
+    //https://developer.mozilla.org/en-US/docs/Web/API/Response/json
   })
   .then((parsedResponse) => {
-    // data is what the above promise (step) returned
+    // parsedResponse is what the above promise (step) returned
     let deckId = parsedResponse.deck_id;
     return deckId;
   })
